@@ -1,0 +1,16 @@
+version: '3'
+services:
+  flaskapp:
+    build:
+      context: ./asingment2
+    ports:
+      - "8000:80"
+
+  nginx:
+    image: nginx:alpine
+    working_dir: /usr/src/app
+    volumes:
+      - ./falsk_app/myweb:/usr/share/nginx/html/:ro
+    ports:
+      - "80:80"
+
